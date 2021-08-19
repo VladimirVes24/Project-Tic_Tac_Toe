@@ -18,5 +18,13 @@
     <ClCompile Include="TicTacToe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyLibHeader.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
