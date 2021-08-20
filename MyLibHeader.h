@@ -11,7 +11,8 @@ namespace MyLib
 	enum Progress {
 		IN_PROGRESS,
 		AI_VICTORY,
-		HUMAN_VICTORY
+		HUMAN_VICTORY,
+		DRAW
 	};
 
 	struct Coord {
@@ -30,7 +31,7 @@ namespace MyLib
 		Cell symbolHuman = CROSS;
 	};
 	
-	void inline clearScreen();
+	void __fastcall clearScreen();
 
 	/// <summary>
 	/// Функция для динамического выделения памяти под двумерный массив со значениями ячеек игрового поля
@@ -51,7 +52,7 @@ namespace MyLib
 	/// </summary>
 	/// <param name="game"> - объект структуры Game, для которого задается размер </param>
 	/// <returns></returns>
-	void __fastcall defineFieldSize(Game& game);
+	void __fastcall defineFieldSize(Game& game, int x, int y);
 
 	/// <summary>
 	/// Функция устанавливающая каким символом играет человек, а каким ИИ
@@ -65,7 +66,7 @@ namespace MyLib
 	/// </summary>
 	/// <param name="game"></param>
 	/// <returns></returns>
-	void __fastcall defineRowLength(Game& game);
+	void __fastcall defineRowLength(Game& game, int length);
 
 	/// <summary>
 	/// Функция вывода игрового поля на экран
@@ -73,4 +74,21 @@ namespace MyLib
 	/// <param name="game"></param>
 	/// <returns></returns>
 	void __fastcall drawField(Game& game);
+
+	/// <summary>
+	/// Функция для опеределия кто ходит первым
+	/// </summary>
+	/// <param name="game"></param>
+	/// <returns></returns>
+	void __fastcall defineTurn(Game& game);
+
+	Progress __fastcall isWon(Game& game);
+
+	Coord __fastcall getCoordHuman(Game& game);
+
+	Coord __fastcall getCoordAI(Game& game);
+
+	Coord __fastcall getCoordAI(Game& game, bool debugCheck);
+
+	void Conclude(Game& game);
 }
